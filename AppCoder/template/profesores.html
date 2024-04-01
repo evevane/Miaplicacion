@@ -1,0 +1,32 @@
+{% extends 'padre.html' %}
+
+{% load static %}
+
+{% block contenido %}
+   
+    <h1 class="text-center"> PROFESORES </h1>
+    <a href="alta_profesores" class="btn btn-primary btn-sm">Nuevo profesor</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>nombre</th>
+                <th>materia</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for n in cursos %}
+            <tr>
+                <td>{{n.id}}</td>
+                <td>{{n.nombre}}</td>
+                <td>{{n.materia}}</td>
+                
+                <td><a href="{% url 'editar_profesores' n.id %}" class="btn btn-warning btn-sm">EDITAR</a></td>
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+    </table>
+ 
+{% endblock %}
